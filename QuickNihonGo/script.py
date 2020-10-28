@@ -12,13 +12,9 @@ r = u'今日'
 dicResult = jmdict.lookup(r)
 
 for entry in dicResult.entries:
-     print(entry)
+     print(entry.senses[0].gloss)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='script.py')
-    parser.add_argument('-d', required=True, help='Repertoire contenant les sous-repertoires des auteurs')
-    parser.add_argument('-a', help='Auteur a traiter')
-    parser.add_argument('-A', action='store_true', help='Tous les auteurs')
-    parser.add_argument('-f', help='Fichier inconnu a comparer') #Comparer avec un fichier random IMPLEMENTED
-    parser.add_argument('-m', required=True, type=int, choices={1, 2}, help='Mode (1 ou 2) - unigrammes ou digrammes')
+    parser.add_argument('-c', required=True, help='Root folder containing the dict data folder.')
     args = parser.parse_args()
